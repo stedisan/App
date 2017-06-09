@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <Resource
+        name="jdbc/webdb2" 
+        type="javax.sql.DataSource"
+        auth="Container"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost/jobservice"
+        username="root"
+        password=""
+        maxActive="10"
+        maxIdle="5"
+        maxWait="10000"
+    />
+</Context>
+
