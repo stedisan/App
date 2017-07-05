@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 02, 2017 alle 18:11
+-- Creato il: Mag 17, 2017 alle 13:21
 -- Versione del server: 10.1.21-MariaDB
 -- Versione PHP: 5.6.30
 
@@ -23,222 +23,103 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `categoria`
+-- Struttura della tabella `categorie`
 --
 
-CREATE TABLE `categoria` (
-  `id_cat` char(1) NOT NULL,
-  `nomec` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `categorie` (
+  `id_cat` int(10) NOT NULL AUTO_INCREMENT,
+  `nomec` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_cat`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+-- --------------------------------------------------------
+
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `chat`
+-- Struttura della tabella `prenotazioni`
 --
 
-CREATE TABLE `chat` (
-  `id_chat` int(10) NOT NULL,
-  `id_profC` char(1) NOT NULL,
-  `id_utenteC` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `prenotazioni` (
+  `id_pren` int(10) NOT NULL AUTO_INCREMENT,
+  `giorno` date (255) NOT NULL,
+  `ora` int(255) NOT NULL,
+  `id_prof` int(10),
+  `id_utente` int(10) NOT NULL,
+ PRIMARY KEY (`id_pren`),
+ FOREIGN KEY (`id_prof`) REFERENCES `professionisti` (`id_prof`),
+ FOREIGN KEY (`id_utente`)REFERENCES `utenti` (`id_utente`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `prenotazione`
+-- Struttura della tabella `professionisti`
 --
 
-CREATE TABLE `prenotazione` (
-  `id_pren` char(1) NOT NULL,
-  `giorno` char(1) DEFAULT NULL,
-  `ora` char(1) DEFAULT NULL,
-  `id_profp` char(1) NOT NULL,
-  `id_utentep` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `professionisti` (
+  `id_prof` int(10) NOT NULL AUTO_INCREMENT,
+  `nomep` varchar(255) NOT NULL,
+  `id_cat` int(10) NOT NULL,
+  `cognnomep` varchar(255) NOT NULL,
+  `etap` varchar(3) NOT NULL,
+  `telp` varchar(11) NOT NULL,
+  `città` varchar(11) NOT NULL,
+  `mailp` varchar(1) NOT NULL,
+  PRIMARY KEY (`id_prof`),
+  FOREIGN KEY (`id_cat`) REFERENCES `categorie` (`id_cat`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `professionista`
+-- Struttura della tabella `utenti`
 --
 
-CREATE TABLE `professionista` (
-  `id_prof` char(1) NOT NULL,
-  `nomep` char(1) DEFAULT NULL,
-  `id_cat` char(1) NOT NULL,
-  `cognnomep` char(1) DEFAULT NULL,
-  `etap` char(1) DEFAULT NULL,
-  `telp` int(11) DEFAULT NULL,
-  `mailp` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `session`
---
-
-CREATE TABLE `session` (
-  `session_id` int(10) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `user_id` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+CREATE TABLE `utenti` (
+  `id_utente` int(10) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `cognome` varchar(255) NOT NULL,
+  `citta` varchar(255) NOT NULL,
+  `eta` varchar(3) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_utente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 --
 -- Struttura della tabella `tasks`
 --
 
 CREATE TABLE `tasks` (
-  `task_id` char(10) NOT NULL,
+  `task_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `text` varchar(4000) NOT NULL,
-  `completed` tinyint(1) UNSIGNED DEFAULT '0',
-  `position` int(10) UNSIGNED NOT NULL,
-  `user_id` char(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `tasks_utente`
---
-
-CREATE TABLE `tasks_utente` (
-  `id_task_2` char(10) NOT NULL DEFAULT '',
-  `id_utente_2` char(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+  `completed` tinyint(1) unsigned NULL DEFAULT '0',
+  `position` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`task_id`),
+  KEY `fk_tasks_users_idx` (`id_utente`),
+  CONSTRAINT `fk_tasks_constraint` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id_utente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 --
--- Struttura della tabella `utente`
+-- Struttura della tabella `sessions`
 --
 
-CREATE TABLE `utente` (
-  `id_utente` char(1) NOT NULL,
-  `nome` char(1) DEFAULT NULL,
-  `cognome` char(1) DEFAULT NULL,
-  `citta` char(1) DEFAULT NULL,
-  `eta` char(1) DEFAULT NULL,
-  `telefono` int(11) DEFAULT NULL,
-  `email` char(1) DEFAULT NULL,
-  `username` char(1) DEFAULT NULL,
-  `password` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `sessions` (
+  `session_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `token` varchar(255) NOT NULL,
+  `id_utente` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`session_id`),
+  KEY `fk_sessions_users_idx` (`user_id`),
+  CONSTRAINT `fk_sessions_constraint` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id_utente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
---
--- Indici per le tabelle scaricate
---
 
---
--- Indici per le tabelle `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id_cat`);
 
---
--- Indici per le tabelle `chat`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id_chat`,`id_profC`,`id_utenteC`),
-  ADD KEY `id_profC` (`id_profC`),
-  ADD KEY `id_utenteC` (`id_utenteC`);
-
---
--- Indici per le tabelle `prenotazione`
---
-ALTER TABLE `prenotazione`
-  ADD PRIMARY KEY (`id_pren`,`id_profp`,`id_utentep`),
-  ADD KEY `id_profp` (`id_profp`),
-  ADD KEY `id_utentep` (`id_utentep`);
-
---
--- Indici per le tabelle `professionista`
---
-ALTER TABLE `professionista`
-  ADD PRIMARY KEY (`id_prof`,`id_cat`),
-  ADD KEY `id_cat` (`id_cat`);
-
---
--- Indici per le tabelle `session`
---
-ALTER TABLE `session`
-  ADD PRIMARY KEY (`session_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indici per le tabelle `tasks`
---
-ALTER TABLE `tasks`
-  ADD PRIMARY KEY (`task_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indici per le tabelle `tasks_utente`
---
-ALTER TABLE `tasks_utente`
-  ADD KEY `id_task_2` (`id_task_2`),
-  ADD KEY `id_utente_2` (`id_utente_2`);
-
---
--- Indici per le tabelle `utente`
---
-ALTER TABLE `utente`
-  ADD PRIMARY KEY (`id_utente`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
-
---
--- AUTO_INCREMENT per la tabella `session`
---
-ALTER TABLE `session`
-  MODIFY `session_id` int(10) NOT NULL AUTO_INCREMENT;
---
--- Limiti per le tabelle scaricate
---
-
---
--- Limiti per la tabella `chat`
---
-ALTER TABLE `chat`
-  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_profC`) REFERENCES `professionista` (`id_prof`),
-  ADD CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`id_utenteC`) REFERENCES `utente` (`id_utente`);
-
---
--- Limiti per la tabella `prenotazione`
---
-ALTER TABLE `prenotazione`
-  ADD CONSTRAINT `prenotazione_ibfk_1` FOREIGN KEY (`id_profp`) REFERENCES `professionista` (`id_prof`),
-  ADD CONSTRAINT `prenotazione_ibfk_2` FOREIGN KEY (`id_utentep`) REFERENCES `utente` (`id_utente`);
-
---
--- Limiti per la tabella `professionista`
---
-ALTER TABLE `professionista`
-  ADD CONSTRAINT `professionista_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `categoria` (`id_cat`) ON DELETE CASCADE;
-
---
--- Limiti per la tabella `session`
---
-ALTER TABLE `session`
-  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `utente` (`id_utente`);
-
---
--- Limiti per la tabella `tasks`
---
-ALTER TABLE `tasks`
-  ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `utente` (`id_utente`);
-
---
--- Limiti per la tabella `tasks_utente`
---
-ALTER TABLE `tasks_utente`
-  ADD CONSTRAINT `tasks_utente_ibfk_1` FOREIGN KEY (`id_task_2`) REFERENCES `tasks` (`task_id`),
-  ADD CONSTRAINT `tasks_utente_ibfk_2` FOREIGN KEY (`id_utente_2`) REFERENCES `utente` (`id_utente`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
