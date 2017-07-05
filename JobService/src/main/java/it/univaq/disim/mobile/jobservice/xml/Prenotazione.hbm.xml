@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.Prenotazione">
+	<class name="Prenotazione" table="prenotazioni">
+	<id name="id_prenot" column="id_prof">
+	<generator class="increment"/>
+	</id>
+	<property name="data" type="data" column="giorno"/>
+        <property name="ora" type="timezone" column="ora"/>
+        <property name="id_profp" type="int" column="id_prof"/>
+        <property name="id_utentep" type="int" column="id_utente"/>
+        
+	
+	</class>
+	</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.Professionista">
+	<class name="Professionista" table="professionisti">
+	<id name="id_prof" column="id_prof">
+	<generator class="increment"/>
+	</id>
+	<property name="nomep" type="varchar" column="nome"/>
+        <property name="cognomep" type="varchar" column="cognome"/>
+        <property name="mailp" type="varchar" column="città"/>
+        <property name="etàp" type="int" column="età"/>
+        <property name="telp" type="varchar" column="telefono"/>
+        <property name="città" type="varchar" column="città"/>
+        <property name="id_cat" column="id_cat" />
+        
+	
+	</class>
+	</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.Session">
+	<class name="Session" table="sessions">
+	<id name="id" column="session_id">
+	<generator class="increment"/>
+	</id>
+	<property name="token" type="varchar" column="token"/>
+        <property name="user" type="int" column="id_utente"/>
+ 
+	
+	</class>
+	</hibernate-mapping>

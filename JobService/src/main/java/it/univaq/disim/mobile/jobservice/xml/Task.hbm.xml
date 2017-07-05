@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.Task">
+	<class name="Task" table="tasks">
+	<id name="id" column="task_id">
+	<generator class="increment"/>
+	</id>
+	<property name="text" type="varchar" column="text"/>
+        <property name="completed" type="tinyint" column="completed"/>
+        <property name="position" type="int" column="position"/>
+        <property name="user" type="int" column="id_utente"/>
+	
+	</class>
+	</hibernate-mapping>

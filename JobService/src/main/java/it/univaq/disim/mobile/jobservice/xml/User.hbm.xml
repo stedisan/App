@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.User">
+	<class name="User" table="utenti">
+	<id name="id" column="id_utente">
+	<generator class="increment"/>
+	</id>
+	<property name="nome" type="varchar" column="nome"/>
+        <property name="cognome" type="varchar" column="cognome"/>
+        <property name="città" type="varchar" column="città"/>
+        <property name="età" type="int" column="età"/>
+        <property name="telefono" type="varchar" column="telefono"/>
+        <property name="username" type="varchar" column="username"/>
+        <property name="password" type="varchar" column="password"/>
+	
+	</class>
+	</hibernate-mapping>
