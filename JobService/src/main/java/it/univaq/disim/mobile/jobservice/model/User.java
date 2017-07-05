@@ -6,7 +6,7 @@
 package it.univaq.disim.mobile.jobservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import it.univaq.disim.mobile.jobservice.database.JobServiceDataLayerMysqlImpl;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -25,13 +25,13 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "users")
+@Table(name = "utenti")
 public class User implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long id;
+    @Column(name = "id_utente")
+    private int id;
 
     @Column(name = "username", nullable = false, length = 255)
     private String username;
@@ -39,31 +39,42 @@ public class User implements java.io.Serializable {
     @Column(name = "password", nullable = false, length = 255)
     private String password;
     
-    @Column(name = "first_name", nullable = false, length = 255)
-    private String firstname;
+    @Column(name = "nome", nullable = false, length = 255)
+    private String nome;
     
-    @Column(name = "last_name", nullable = false, length = 255)
-    private String lastname;
+    @Column(name = "cognome", nullable = false, length = 255)
+    private String cognome;
     
     @Column(name = "email", nullable = false, length = 255)
     private String email;
     
     @Column(name="telefono", nullable=false, length=10)
     private String telefono;
+    
+    @Column(name="città", nullable=false, length=10)
+    private String città;
+    
+    @Column(name="età", nullable=false, length=10)
+    private int età;
+    
+    
+    
 
     @JsonIgnore
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Task> tasks = new HashSet<>();
 
-    public User(JobServiceDataLayerMysqlImpl aThis) {
+    public User(String nome, String cognome, String username, String password, String telefono, int età, String email, String città) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
-    public Long getId() {
+    
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -83,20 +94,20 @@ public class User implements java.io.Serializable {
         this.password = password;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getNome() {
+        return nome;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getCognome() {
+        return cognome;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 
     public String getEmail() {
@@ -105,6 +116,28 @@ public class User implements java.io.Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+     public int getEtà() {
+        return età;
+    }
+
+    public void setEtà(int età) {
+        this.età = età;
+    }
+    public String getCittà() {
+        return città;
+    }
+
+    public void setCittà(String città) {
+        this.città = città;
     }
 
     public Set<Task> getTasks() {

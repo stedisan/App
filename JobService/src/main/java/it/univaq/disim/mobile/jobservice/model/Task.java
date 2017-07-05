@@ -5,7 +5,7 @@
  */
 package it.univaq.disim.mobile.jobservice.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import it.univaq.disim.mobile.jobservice.database.JobServiceDataLayerMysqlImpl;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +22,7 @@ public class Task implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "task_id")
-    private Long id;
+    private int id;
 
     @Column(name = "text", nullable = false, length = 4000)
     private String text;
@@ -35,18 +35,16 @@ public class Task implements java.io.Serializable {
     
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "id_utente", nullable = false)
     private User user;
 
-    public Task(JobServiceDataLayerMysqlImpl aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

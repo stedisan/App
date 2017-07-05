@@ -5,46 +5,48 @@
  */
 package it.univaq.disim.mobile.jobservice.model;
 
-import it.univaq.disim.mobile.jobservice.database.JobServiceDataLayerMysqlImpl;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Francesca
  */
-
+@Table(name="categorie")
  public class Categoria implements java.io.Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_cat")
+    private int id_categ;
     
-    @Column(name="idcategoria")
-    private long id_categ;
-    
-    @Column(name="nomecate")
+    @Column(name="nomec", nullable = false)
     private String nomecateg;
 
-    public Categoria(JobServiceDataLayerMysqlImpl aThis) {
+    public Categoria(int id_categ, String nomecateg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public long getId(){
+
+
+   
+    public int getId(){
        return id_categ;
        }
     
-    public void SetId(Long id_categ){
+    public void setId(int id_categ){
         this.id_categ=id_categ;
         
     }
     
-    public void SetNomeCat(String nomecateg){
+    public void setNomeCat(String nomecateg){
         this.nomecateg=nomecateg;
     }
     
-    public String GetNomeCat(){
+    public String getNomeCat(){
         return nomecateg;
     }
 }

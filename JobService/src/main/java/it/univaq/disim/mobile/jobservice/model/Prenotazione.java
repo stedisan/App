@@ -5,10 +5,11 @@
  */
 package it.univaq.disim.mobile.jobservice.model;
 
-import it.univaq.disim.mobile.jobservice.database.JobServiceDataLayerMysqlImpl;
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.Date;
+import java.time.LocalTime;
 import java.util.TimeZone;
 
 /**
@@ -16,65 +17,68 @@ import java.util.TimeZone;
  * @author Francesca
  */
 
-    @Table(name="prontazione")
+    @Table(name="prenotazioni")
 public class Prenotazione implements java.io.Serializable{
 
-    @Column(name="id_preno")
-    private String id_prenot;
+    @Column(name="id_pren")
+    private int id_prenot;
     
-    @Column (name="data")
+    @Column (name="data", nullable=false)
     private Date data;
 
     
-    @Column(name="ora")
-    private TimeZone ora;
+    @Column(name="ora",nullable=false)
+    private LocalTime ora;
     
-    @Column(name="idprofp")
-    private String id_profp;
+    @Column(name="id_prof")
+    private int id_profp;
     
-    @Column(name="idutentep")
-    private String id_utentep;
+    @Column(name="id_utente")
+    private int id_utentep;
 
-    public Prenotazione(JobServiceDataLayerMysqlImpl aThis) {
+    public Prenotazione(Date data, LocalTime ora, int id_profp, int id_utentep) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+  
     
-    public void SetIdPreno(String id_prenot){
+    public void setIdPreno(int id_prenot){
         this.id_prenot=id_prenot;
     }
     
-    public String GetIdPreno(){
+    public int getIdPreno(){
         return id_prenot;
     }
     
-    public Date GetDate(){
+    public Date getData(){
         return data;
     }
     
-    public void SetData(Date data){
+    public void setData(Date data){
        this.data=data;
     }
-     public TimeZone GetTimeZone(){
+     public LocalTime getOra(){
         return ora;
     }
     
-    public void SetTimeZone(TimeZone ora){
+    public void setOra(LocalTime ora){
        this.ora=ora;
     }
     
     
-   public void SetIdProf(String id_profp){
+   public void setIdProf(int id_profp){
         this.id_profp=id_profp;
     }
     
-    public String getIdProf(){
+    public int getIdProf(){
         return id_profp;
     }
-    public void SetIdUtentep(String id_utentep){
+    public void setIdUtentep(int id_utentep){
         this.id_utentep=id_utentep;
     }
+ 
     
-    public String getId_prenP(){
+    public int getIdUtentep(){
         return id_utentep;
     }
     }
