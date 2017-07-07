@@ -57,6 +57,9 @@ public class User implements java.io.Serializable {
     @Column(name="età", nullable=false, length=10)
     private int età;
     
+    @Column(name="datadinascita", nullable=false, length=255)
+    private String datadinascita;
+    
     
     
 
@@ -64,7 +67,7 @@ public class User implements java.io.Serializable {
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Task> tasks = new HashSet<>();
 
-    public User(String nome, String cognome, String username, String password, String telefono, int età, String email, String città) {
+    public User(String nome, String cognome, String username, String password, String telefono, int età, String email, String città, String datadinascita) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -138,6 +141,15 @@ public class User implements java.io.Serializable {
 
     public void setCittà(String città) {
         this.città = città;
+    }
+    
+    
+    public String getDatadinascita() {
+        return datadinascita;
+    }
+
+    public void setDatadinascita(String datadinascita) {
+        this.datadinascita = datadinascita;
     }
 
     public Set<Task> getTasks() {
