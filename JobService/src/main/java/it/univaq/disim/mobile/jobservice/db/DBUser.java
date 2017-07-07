@@ -42,7 +42,7 @@ public class DBUser {
 	session.beginTransaction();
 	List<User> result = session.createQuery( "from User" ).list();
 	for ( User utente : (List<User>) result ) {
-	System.out.println( "Utente (" + utente.getNome() + ") : " + utente.getCognome()+"  "+ utente.getTelefono()+ utente.getCittà()+ utente.getEtà()+ utente.getDatadinascita()+ utente.getUsername()+ utente.getPassword() );
+	System.out.println( "Utente (" + utente.getNome() + ") : " + utente.getCognome()+"  "+ utente.getTelefono()+ utente.getCittà()+ utente.getEtà()+ utente.getUsername()+ utente.getPassword()+ utente.getDatadinascita() );
 	}
 	session.getTransaction().commit();
 	session.close();
