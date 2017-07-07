@@ -8,6 +8,7 @@ export interface UserSignupInterface {
     città: string;
     telefono: string;
     età: int;
+	data di nascita: string;
    
     
     
