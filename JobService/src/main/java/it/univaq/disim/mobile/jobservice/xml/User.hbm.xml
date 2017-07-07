@@ -14,6 +14,6 @@
         <property name="telefono" type="varchar" column="telefono"/>
         <property name="username" type="varchar" column="username"/>
         <property name="password" type="varchar" column="password"/>
-	
+	<property name="datadinascita" type="varchar" column="datadinascita"/>
 	</class>
 	</hibernate-mapping>
