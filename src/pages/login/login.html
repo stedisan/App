@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar  hideBackButton color="secondary">
+    <ion-title>Login </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    
+    
+    <div class="logo-container">
+                <img src="assets/icon/logo.jpg" alt=""/>
+    </div>
+    
+    <ion-list no-lines> 
+                <ion-item>
+                    <ion-input type="text" placeholder="Username"> </ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input type="password" placeholder="Password"> </ion-input>
+                </ion-item>
+    </ion-list>
+    
+        <button ion-button block color="secondary" (click)="pop()"> LOGIN </button>
+        
+        <button block ion-button clear outline color="secondary" (click)="funzione2()"> Registrati </button>
+        
+</ion-content>

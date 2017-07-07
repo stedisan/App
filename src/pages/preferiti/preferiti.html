@@ -1,0 +1,36 @@
+<ion-header>
+<ion-navbar color="secondary"> 
+    <ion-title> <ion-icon name="heart" ></ion-icon>  Preferiti</ion-title>
+     <ion-buttons end>
+         <button  ion-button icon-only icon-right (click)="funzione5()"> <ion-icon md="md-search"></ion-icon></button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item-sliding>
+    <ion-item (click)="funzione()">
+      <ion-avatar item-start>
+        <img src="assets/icon/logo.jpg" alt=""/>
+      </ion-avatar>
+      <h2>Professionista</h2>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="message">
+        <ion-icon name="text"></ion-icon>
+        Text
+      </button>
+      <button ion-button color="call">
+        <ion-icon name="call"></ion-icon>
+        Call
+      </button>
+      <button ion-button (click)="funzione()">
+        <ion-icon name="more"></ion-icon>
+        Apri
+      </button>  
+    </ion-item-options>
+   
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

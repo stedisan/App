@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+      <ion-title>JobService</ion-title> 
+         
+    
+       <ion-buttons end>
+           
+            <button  ion-button icon-only icon-right> <ion-icon md="md-heart-outline"> </ion-icon></button>
+
+            <button  ion-button icon-only icon-right (click)="funzione5()"> <ion-icon md="md-search"></ion-icon></button>
+        </ion-buttons>
+    
+  </ion-navbar>
+</ion-header>
+       
+
+    <img src="assets/icon/logo.jpg" alt=""/>
+
+<ion-content>
+    <div class="logo-container">
+                <img src="assets/icon/logo.jpg" alt=""/>
+    </div>
+    <ion-card>
+  <ion-card-header>
+    Descrizione profilo:
+  </ion-card-header>
+  <ion-card-content>
+      <ion-list no-lines>
+          <ion-item>Nome:</ion-item>
+          <ion-item>Categoria:</ion-item>
+          <ion-item>Email:</ion-item>
+          <ion-item>Orario di lavoro:</ion-item>
+      </ion-list>
+  </ion-card-content>
+</ion-card>
+    
+    <button ion-button block icon-left color="secondary" (click)="funzione4()"> <ion-icon name="calendar"></ion-icon>PRENOTA</button>
+    <button ion-button block icon-left color="call"> <ion-icon name="call"></ion-icon>CHIAMA</button>
+    <button ion-button block icon-left color="message"> <ion-icon name="mail"> MESSAGGIO</ion-icon></button>
+</ion-content>

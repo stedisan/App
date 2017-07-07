@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Impostazioni</ion-title>
+     <ion-buttons end>
+         <button  ion-button icon-only icon-right (click)="funzione5()"> <ion-icon md="md-search"></ion-icon></button> </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-list>
+  <ion-list-header>Impostazioni profilo</ion-list-header>
+  <ion-item (click)="funzione()"> Modifica Profilo  </ion-item>
+   <ion-item>Elimina Profilo</ion-item>
+   <ion-list-header> Notifiche </ion-list-header>
+   <ion-item>
+       <ion-toggle checked="false"></ion-toggle>
+      <ion-label>
+        Recensioni
+      </ion-label>
+   </ion-item>
+       <ion-item>
+       <ion-toggle checked="true"></ion-toggle>
+      <ion-label>
+        Appuntamenti
+      </ion-label>
+       </ion-item>
+   </ion-list>
+</ion-content>
