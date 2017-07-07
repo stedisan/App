@@ -33,7 +33,7 @@ public class DBUser {
             //creiamo ed inseriamo un utente
         Session session = sessionFactory.openSession();
 	session.beginTransaction();
-	session.save( new User( "stefania","di sante", "setfdisa", "xxxxx", "3895448717", 0 , "stefaniadisante@gmail.com","roseto") );
+	session.save( new User( "stefania","di sante", "setfdisa", "xxxxx", "3895448717", 26 , "stefaniadisante@gmail.com","roseto", "25marzo90") );
 	session.getTransaction().commit();
 	session.close();
 	
@@ -42,7 +42,7 @@ public class DBUser {
 	session.beginTransaction();
 	List<User> result = session.createQuery( "from User" ).list();
 	for ( User utente : (List<User>) result ) {
-	System.out.println( "Utente (" + utente.getNome() + ") : " + utente.getCognome()+"  "+ utente.getTelefono()+ utente.getCittà()+ utente.getEtà()+ utente.getUsername()+ utente.getPassword() );
+	System.out.println( "Utente (" + utente.getNome() + ") : " + utente.getCognome()+"  "+ utente.getTelefono()+ utente.getCittà()+ utente.getEtà()+ utente.getDatadinascita()+ utente.getUsername()+ utente.getPassword() );
 	}
 	session.getTransaction().commit();
 	session.close();
