@@ -30,23 +30,23 @@ public class UserController {
     @Autowired
     private JobServiceService service;
 
-    @PostMapping("/login")
-    public Response login(@RequestBody User u) {
+    @PostMapping("/signup")
+    public Response signup(@RequestBody User u) {
         Session session = service.login(u.getUsername(), u.getPassword());
         if (session != null) {
-            Response<Login> result = new Response<>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
-            Login login = new Login();
-            login.setToken(session.getToken());
-            login.setUsername(session.getUser().getUsername());
-            login.setNome(session.getUser().getNome());
-            login.setCognome(session.getUser().getCognome());
-            login.setEmail(session.getUser().getEmail());
-            login.setTelefono(session.getUser().getTelefono());
-            login.setDatadinascita(session.getUser().getDatadinascita());
-            login.setCittà(session.getUser().getCittà());
-            login.setEtà(session.getUser().getEtà());
-            login.setPassword(session.getUser().getPassword());
-            result.setData(login);
+            Response<Signup> result = new Response<>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
+            Signup signup = new Signup();
+            signup.setToken(session.getToken());
+            signup.setUsername(session.getUser().getUsername());
+            signup.setNome(session.getUser().getNome());
+            signup.setCognome(session.getUser().getCognome());
+            signup.setEmail(session.getUser().getEmail());
+            signup.setTelefono(session.getUser().getTelefono());
+            signup.setDatadinascita(session.getUser().getDatadinascita());
+            signup.setCittà(session.getUser().getCittà());
+            signup.setEtà(session.getUser().getEtà());
+            signup.setPassword(session.getUser().getPassword());
+            result.setData(signup);
             return result;
         } else {
             return Response.DEFAULT_RESPONSE_KO;
