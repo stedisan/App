@@ -1,0 +1,166 @@
+{
+    "variables": [],
+	"info": {
+		"name": "JobService",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+        "name" : "User",
+			"description": "",
+			"item": [
+				{
+					"name": "Users Create",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/users",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "giorgiolat",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "nome",
+									"value": "Giorgio",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "cognome",
+									"value": "Lattanzi",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "email",
+									"value": "email@email.com",
+									"type": "text",
+									"enabled": true
+								},
+                                                                {
+									"key": "età",
+									"value": "28",
+									"type": "int",
+									"enabled": true
+								},
+                                                                {
+									"key": "telefono",
+									"value": "336525879",
+									"type": "text",
+									"enabled": true
+								},
+                                                                {
+									"key": "datadinascita",
+									"value": "28/5/1988",
+									"type": "text",
+									"enabled": true
+								},
+                                                                {
+									"key": "città",
+									"value": "torino",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/login",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "giorgiolat",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/logout/tokenaskjdaksjdashjbd",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Users Update",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/users/tokensakjdakjdsajhsbd",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Giorgio",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "lastname",
+									"value": "Lattanzi",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "email",
+									"value": "email@email.com",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		} ,
+		{
+			"name": "api test",
+			"request": {
+				"url": "http://localhost:8080/todolist/api",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
