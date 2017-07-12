@@ -22,7 +22,7 @@ import javax.persistence.Table;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_cat")
-    private int id_categ;
+    private Long id_categ;
     
     @Column(name="nomec", nullable = false)
     private String nomecateg;
@@ -33,11 +33,11 @@ import javax.persistence.Table;
 
 
    
-    public int getId(){
+    public Long getId(){
        return id_categ;
        }
     
-    public void setId(int id_categ){
+    public void setId(Long id_categ){
         this.id_categ=id_categ;
         
     }

@@ -31,7 +31,7 @@ public class User implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_utente")
-    private int id;
+    private Long id;
 
     @Column(name = "username", nullable = false, length = 255)
     private String username;
@@ -73,11 +73,11 @@ public class User implements java.io.Serializable {
 
     
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

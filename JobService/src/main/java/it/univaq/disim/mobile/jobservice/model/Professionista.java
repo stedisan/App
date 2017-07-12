@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="professionisti")
 public class Professionista implements java.io.Serializable {
     @Column(name="id_prof")
-    private int id_prof;
+    private Long id_prof;
     
     @Column(name="nomep" ,nullable = false, length = 255)
     private String nomep;
@@ -45,11 +45,11 @@ public class Professionista implements java.io.Serializable {
     }
 
     
-    public void setIdProf(int id_prof){
+    public void setIdProf(Long id_prof){
         this.id_prof=id_prof;
     }
     
-    public int getIdPreno(){
+    public Long getIdPreno(){
         return id_prof;
     }
     

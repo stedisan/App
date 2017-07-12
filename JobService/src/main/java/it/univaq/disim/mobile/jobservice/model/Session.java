@@ -26,7 +26,7 @@ public class Session implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "session_id")
-    private int id;
+    private Long id;
 
     @Column(name = "token", nullable = false, length = 255)
     private String token;
@@ -37,11 +37,11 @@ public class Session implements java.io.Serializable {
 
   
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

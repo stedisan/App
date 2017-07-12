@@ -21,7 +21,7 @@ import java.util.TimeZone;
 public class Prenotazione implements java.io.Serializable{
 
     @Column(name="id_pren")
-    private int id_prenot;
+    private Long id_prenot;
     
     @Column (name="data", nullable=false)
     private Date data;
@@ -42,11 +42,11 @@ public class Prenotazione implements java.io.Serializable{
 
   
     
-    public void setIdPreno(int id_prenot){
+    public void setIdPreno(Long id_prenot){
         this.id_prenot=id_prenot;
     }
     
-    public int getIdPreno(){
+    public Long getIdPreno(){
         return id_prenot;
     }
     

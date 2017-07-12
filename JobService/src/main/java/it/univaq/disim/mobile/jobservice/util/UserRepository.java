@@ -5,17 +5,17 @@
  */
 package it.univaq.disim.mobile.jobservice.util;
 
-import it.univaq.disim.mobile.jobservice.model.Session;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 /**
  *
  * @author Francesca
  */
-public interface SessionRepository extends JpaRepository<Session, Long> {
 
-    Session findByToken(String token);
+import it.univaq.disim.mobile.jobservice.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByUsername(String username);
 
 }
-   
 

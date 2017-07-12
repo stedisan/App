@@ -22,7 +22,7 @@ public class Task implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "task_id")
-    private int id;
+    private Long id;
 
     @Column(name = "text", nullable = false, length = 4000)
     private String text;
@@ -40,11 +40,11 @@ public class Task implements java.io.Serializable {
 
    
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
