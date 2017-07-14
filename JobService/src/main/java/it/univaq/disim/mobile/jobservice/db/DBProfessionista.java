@@ -27,7 +27,7 @@ package it.univaq.disim.mobile.jobservice.db;
             //creiamo ed inseriamo un professionista
         Session session = sessionFactory.openSession();
 	session.beginTransaction();
-	session.save( new Professionista( "gino","di meo", "ginodimeo@gmail.com", "3389556212", 30 , 0,"ortona") );
+	session.save( new Professionista( "gino","di meo", "ginodimeo@gmail.com", "3389556212", 30,569L , "ortona") );
 	session.getTransaction().commit();
 	session.close();
 	

@@ -6,6 +6,8 @@
 package it.univaq.disim.mobile.jobservice.db;
 
 import it.univaq.disim.mobile.jobservice.model.User;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -33,7 +35,7 @@ public class DBUser {
             //creiamo ed inseriamo un utente
         Session session = sessionFactory.openSession();
 	session.beginTransaction();
-	session.save( new User( "stefania","di sante", "setfdisa", "xxxxx", "3895448717", 26 , "stefaniadisante@gmail.com","roseto", "25marzo90") );
+	session.save( new User( "stefania","di sante", "setfdisa", "xxxxx", "3895448717", 26 , "stefaniadisante@gmail.com","roseto", "12-31-1980") );
 	session.getTransaction().commit();
 	session.close();
 	

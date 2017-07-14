@@ -5,6 +5,7 @@
  */
 package it.univaq.disim.mobile.jobservice.util;
 
+import it.univaq.disim.mobile.jobservice.model.Prenotazione;
 import it.univaq.disim.mobile.jobservice.model.Task;
 import it.univaq.disim.mobile.jobservice.model.User;
 import it.univaq.disim.mobile.jobservice.model.Session;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 @Transactional
@@ -28,6 +30,9 @@ public class JobServiceServiceImpl implements JobServiceService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private PrenotazioneRepository prenotazioneRepository;
 
     @Override
     public Session login(String username, String password) {
@@ -151,5 +156,30 @@ public class JobServiceServiceImpl implements JobServiceService {
                 }
             });
         }
+    }
+    
+    
+    @Override
+    public boolean createPrenotazione (Prenotazione prenotazione){
+        Prenotazione p = prenotazioneRepository.findById(prenotazione.getIdPreno());
+        if (p != null) {
+            return false;
+        }
+        prenotazioneRepository.save(prenotazione);
+        return true;
+    }
+
+    public void updatePrenotazione(String token, Prenotazione prenotazione) {
+        Session session = sessionRepository.findByToken(token);
+        if (session != null) {
+            Prenotazione oldPrenotazione = session.getPrenotazione();
+            oldPrenotazione.setOra(prenotazione.getOra());
+            oldPrenotazione.setData(prenotazione.getData());
+    }
+    }
+
+    @Override
+    public void deletePrenotazione(Long id_prenot) {
+        prenotazioneRepository.delete(id_prenot);
     }
 }

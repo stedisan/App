@@ -13,7 +13,7 @@
         <property name="etàp" type="int" column="età"/>
         <property name="telp" type="varchar" column="telefono"/>
         <property name="città" type="varchar" column="città"/>
-        <property name="id_cat" column="id_cat" />
+        <property name="id_cat" type="long" column="id_cat" />
         
 	
 	</class>

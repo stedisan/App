@@ -33,7 +33,7 @@ public class DBCategoria {
             //creiamo ed inseriamo una categoria
         Session session = sessionFactory.openSession();
 	session.beginTransaction();
-	session.save( new Categoria( 0, "idraulico") );
+	session.save( new Categoria( "idraulico") );
 	session.getTransaction().commit();
 	session.close();
 	

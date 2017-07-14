@@ -6,8 +6,8 @@
 package it.univaq.disim.mobile.jobservice.db;
 
 import it.univaq.disim.mobile.jobservice.model.Prenotazione;
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -35,7 +35,7 @@ public class DBPrenotazione {
             //creiamo ed inseriamo una prenoazione
         Session session = sessionFactory.openSession();
 	session.beginTransaction();
-	session.save( new Prenotazione( new Date(),new LocalTime(), 0 , 0) );
+	session.save( new Prenotazione( "22:30","22-03-2017", 898L , 562L) );
 	session.getTransaction().commit();
 	session.close();
 	

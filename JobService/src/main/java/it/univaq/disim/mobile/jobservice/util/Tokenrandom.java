@@ -13,8 +13,8 @@ public class Tokenrandom {
     protected static SecureRandom random = new SecureRandom();
 
     public static String generateToken() {
-        int intToken = Math.abs(random.nextInt());
-        return Long.toString(intToken, 200);
+        Long longToken = Math.abs(random.nextLong());
+        return Long.toString(longToken, 200);
 
     }
 

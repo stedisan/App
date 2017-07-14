@@ -23,7 +23,7 @@ public class Professionista implements java.io.Serializable {
     private String nomep;
     
     @Column(name="id_cat", nullable = false, length = 255)
-    private int idcateg;
+    private Long idcateg;
     
     @Column(name="cognomep", nullable = false, length = 255)
     private String cognomep;
@@ -40,9 +40,15 @@ public class Professionista implements java.io.Serializable {
     @Column(name="città", nullable = false, length = 255)
     private String città;
 
-    public Professionista(String nomep, String cognomep, String mailp, String telp , int etàp, int idcateg, String città) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public Professionista(String nomep, String cognomep, String mailp, String telp , int etàp, Long idcateg, String città) {
+        this.nomep=nomep;
+        this.cognomep=cognomep;
+        this.mailp=mailp;
+        this.etàp=etàp;
+        this.telp=telp;
+        this.idcateg=idcateg;
+        this.città=città;
+                }
 
     
     public void setIdProf(Long id_prof){
@@ -61,11 +67,11 @@ public class Professionista implements java.io.Serializable {
         return nomep;
     }
     
-    public void setIdCateg(int idcateg){
+    public void setIdCateg(Long idcateg){
         this.idcateg=idcateg;
     }
     
-    public int getIdCateg(){
+    public Long getIdCateg(){
         return idcateg;
     }
     

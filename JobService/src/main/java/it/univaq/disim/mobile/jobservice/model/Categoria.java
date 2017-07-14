@@ -27,7 +27,7 @@ import javax.persistence.Table;
     @Column(name="nomec", nullable = false)
     private String nomecateg;
 
-    public Categoria(int id_categ, String nomecateg) {
+    public Categoria(String nomecateg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

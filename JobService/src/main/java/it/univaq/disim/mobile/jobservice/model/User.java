@@ -68,10 +68,17 @@ public class User implements java.io.Serializable {
     private Set<Task> tasks = new HashSet<>();
 
     public User(String nome, String cognome, String username, String password, String telefono, int età, String email, String città, String datadinascita) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.nome=nome;
+       this.cognome=cognome;
+       this.username=username;
+       this.password=password;
+       this.telefono=telefono;
+       this.città=città;
+       this.età=età;
+       this.email=email;
+       this.datadinascita=datadinascita;
     }
 
-    
     
     public Long getId() {
         return id;

@@ -6,6 +6,7 @@
 package it.univaq.disim.mobile.jobservice.model;
 
 
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.Date;
@@ -24,20 +25,25 @@ public class Prenotazione implements java.io.Serializable{
     private Long id_prenot;
     
     @Column (name="data", nullable=false)
-    private Date data;
+    private String data;
 
     
     @Column(name="ora",nullable=false)
-    private LocalTime ora;
+    private String ora;
     
     @Column(name="id_prof")
-    private int id_profp;
+    private Long id_profp;
     
     @Column(name="id_utente")
-    private int id_utentep;
+    private Long id_utentep;
 
-    public Prenotazione(Date data, LocalTime ora, int id_profp, int id_utentep) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Prenotazione(String data, String ora, Long id_profp, Long id_utentep) {
+        this.data=data;
+        this.ora=ora;
+        this.id_profp=id_profp;
+        this.id_utentep=id_utentep;
+        
+        
     }
 
   
@@ -50,35 +56,35 @@ public class Prenotazione implements java.io.Serializable{
         return id_prenot;
     }
     
-    public Date getData(){
+    public String getData(){
         return data;
     }
     
-    public void setData(Date data){
+    public void setData(String data){
        this.data=data;
     }
-     public LocalTime getOra(){
+     public String getOra(){
         return ora;
     }
     
-    public void setOra(LocalTime ora){
+    public void setOra(String ora){
        this.ora=ora;
     }
     
     
-   public void setIdProf(int id_profp){
+   public void setIdProf(Long id_profp){
         this.id_profp=id_profp;
     }
     
-    public int getIdProf(){
+    public Long getIdProf(){
         return id_profp;
     }
-    public void setIdUtentep(int id_utentep){
+    public void setIdUtentep(Long id_utentep){
         this.id_utentep=id_utentep;
     }
  
     
-    public int getIdUtentep(){
+    public Long getIdUtentep(){
         return id_utentep;
     }
     }

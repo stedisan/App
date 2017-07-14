@@ -5,6 +5,7 @@
  */
 package it.univaq.disim.mobile.jobservice.util;
 
+import it.univaq.disim.mobile.jobservice.model.Prenotazione;
 import it.univaq.disim.mobile.jobservice.model.Session;
 import it.univaq.disim.mobile.jobservice.model.Task;
 import it.univaq.disim.mobile.jobservice.model.User;
@@ -21,8 +22,12 @@ public interface JobServiceService {
     void logout(String token);
 
     boolean createUser(User user);
+    
+    boolean createPrenotazione(Prenotazione prenotazione);
 
     void updateUser(String token, User user);
+    
+    void updatePrenotazione(String token,Prenotazione prenotazione);
 
     Task createTask(String token, Task task);
 
@@ -33,6 +38,8 @@ public interface JobServiceService {
     Task updateTask(String token, Task task);
 
     void deleteTask(String token, Long id);
+    
+    void deletePrenotazione(Long id_prenot);
 
     void updateOrderTasks(String token, List<Task> tasks);
 

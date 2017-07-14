@@ -34,8 +34,10 @@ public class Session implements java.io.Serializable {
     @ManyToOne
     @JoinColumn(name ="id_utente" , nullable = false)
     private User user;
+    
+    private Prenotazione prenotazione;
 
-  
+ 
 
     public Long getId() {
         return id;
@@ -61,4 +63,12 @@ public class Session implements java.io.Serializable {
         this.user = user;
     }
 
+    public Prenotazione getPrenotazione(){
+        return prenotazione;
+    }
+    
+    public void setPrenotazione(Prenotazione prenotazione){
+        this.prenotazione=prenotazione;
+    }
+    
 }
