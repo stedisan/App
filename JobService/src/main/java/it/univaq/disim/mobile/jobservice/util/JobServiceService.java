@@ -23,12 +23,18 @@ public interface JobServiceService {
 
     boolean createUser(User user);
     
-    boolean createPrenotazione(Prenotazione prenotazione);
+    boolean createPrenotazione(Prenotazione prenotazione);    
+   
+    boolean createPreferito(Preferito preferito);
 
     void updateUser(String token, User user);
     
     void updatePrenotazione(String token,Prenotazione prenotazione);
+    
+    void deletePrenotazione(Long id_prenot);
 
+    void deletePreferito(Long id_pref);
+    
     Task createTask(String token, Task task);
 
     List<Task> findAllTasks(String username);
@@ -39,8 +45,7 @@ public interface JobServiceService {
 
     void deleteTask(String token, Long id);
     
-    void deletePrenotazione(Long id_prenot);
-
     void updateOrderTasks(String token, List<Task> tasks);
 
+    
 }

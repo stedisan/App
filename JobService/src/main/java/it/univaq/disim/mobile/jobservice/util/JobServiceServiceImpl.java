@@ -5,6 +5,7 @@
  */
 package it.univaq.disim.mobile.jobservice.util;
 
+import it.univaq.disim.mobile.jobservice.model.Preferiti;
 import it.univaq.disim.mobile.jobservice.model.Prenotazione;
 import it.univaq.disim.mobile.jobservice.model.Task;
 import it.univaq.disim.mobile.jobservice.model.User;
@@ -33,6 +34,9 @@ public class JobServiceServiceImpl implements JobServiceService {
     
     @Autowired
     private PrenotazioneRepository prenotazioneRepository;
+    
+     @Autowired
+    private PrenotazioneRepository preferitiRepository;
 
     @Override
     public Session login(String username, String password) {
@@ -181,5 +185,19 @@ public class JobServiceServiceImpl implements JobServiceService {
     @Override
     public void deletePrenotazione(Long id_prenot) {
         prenotazioneRepository.delete(id_prenot);
+    }
+    
+   
+    public boolean createPreferiti (Preferiti preferiti){
+        Prenotazione p = preferitiRepository.findById(preferiti.getIdPref());
+        if (p != null) {
+            return false;
+        }
+        preferitiRepository.save(preferiti);
+        return true;
+    }
+    
+    public void deletePreferiti (Long id_pref) {
+        preferitiRepository.delete(id_pref);
     }
 }
