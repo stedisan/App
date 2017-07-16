@@ -72,6 +72,18 @@ CREATE TABLE `professionisti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
+--
+-- Struttura della tabella `preferiti`
+--
+
+CREATE TABLE `preferiti` (
+  `id_pre` int(10) NOT NULL AUTO_INCREMENT,
+  `id_prof` int(10),
+  `id_utente` int(10) NOT NULL,
+  PRIMARY KEY (`id_pre`),
+  FOREIGN KEY (`id_prof`) REFERENCES `professionisti` (`id_prof`),
+  FOREIGN KEY (`id_utente`)REFERENCES `utenti` (`id_utente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 --
 -- Struttura della tabella `utenti`
