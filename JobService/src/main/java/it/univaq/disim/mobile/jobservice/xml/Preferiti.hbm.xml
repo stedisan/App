@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.Preferiti">
+	<class name="Preferiti" table="preferiti">
+	<id name="id_pref" column="id_pre">
+	<generator class="increment"/>
+	</id>
+	
+        <property name="id_profp" type="long" column="id_prof"/>
+        <property name="id_utentep" type="long" column="id_utente"/>
+	
+        </class>
+	</hibernate-mapping>
