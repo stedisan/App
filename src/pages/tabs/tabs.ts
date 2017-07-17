@@ -12,7 +12,8 @@ export class TabsPage {
     tab1Root='UtentePage';
     tab2Root='ImpostazioniPage';
     tab3Root='PreferitiPage';
-
+    tab4Root='ArchivioPage';
+    
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

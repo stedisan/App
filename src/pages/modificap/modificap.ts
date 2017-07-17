@@ -7,9 +7,6 @@ import { AlertController } from 'ionic-angular';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-//providers 
-import { DictionaryService } from '../../modules/dictionary/providers/dictionary.service';
- 
 @IonicPage()
 @Component({
   selector: 'page-modificap',
@@ -23,7 +20,7 @@ export class ModificapPage {
     'Password',
     'Email',
     'Telefono',
-    'Città',
+    'città',
     'Data di Nascita'
     
   ];
@@ -31,12 +28,7 @@ export class ModificapPage {
   itemSelected(item: string) {
     console.log("Selected Item", item);
   }
-  constructor(
-  public navCtrl: NavController, 
-  public navParams: NavParams, 
-  public alertCtrl: AlertController,
-  public sDictionary: DictionaryService
-  ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {

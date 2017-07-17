@@ -1,0 +1,50 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Profilo</ion-title>
+     <ion-buttons end>
+         <button  ion-button icon-only icon-right (click)="funzione5()"> <ion-icon name="search"></ion-icon></button> </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="logo-container">
+                <img src="assets/icon/logo.jpg" alt=""/>
+                <p (click)="funz()"> Modifica immagine </p>
+    </div>    
+<div class="container-form">
+
+        <ion-list>
+            <ion-item>
+                <ion-label stacked> Username:</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Email:</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Nome:</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Cognome:</ion-label>
+            </ion-item>
+             <ion-item>
+                <ion-label stacked>Telefono:</ion-label>
+            </ion-item>
+             <ion-item>
+                <ion-label stacked>Città:</ion-label>
+            </ion-item>
+             <ion-item>
+                <ion-label stacked>Data di nascita:</ion-label>
+            </ion-item>
+        </ion-list>
+</div>
+    <ion-fab right top>
+    <button ion-fab mini color="secondary"><ion-icon name="log-out"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab (click)="esci()">logout</button>
+    </ion-fab-list>
+    </ion-fab>
+</ion-content>

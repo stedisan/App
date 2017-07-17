@@ -1,18 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
  //models
- import {User} from '../../models/user.model';
+import {Utente} from '../../models/utente.model';
  //Providers
 import {AccountProvider} from '../../providers/account.provider';
 import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
-
 
 @IonicPage()
 @Component({
@@ -21,8 +14,7 @@ import {DictionaryService} from '../../modules/dictionary/providers/dictionary.s
 })
 export class LoginPage {
 
-
-	username: string = "";
+  	username: string = "";
     password: string = "";
   constructor(
   public navCtrl: NavController, 
@@ -39,9 +31,8 @@ export class LoginPage {
   }
   funzione2(){
           this.navCtrl.push('RegistrazionePage');}
-  pop(){
-      this.navCtrl.setRoot('TabsPage');
-  }
+  
+  
   
   login() {
         this._validate().then(() => {
@@ -49,7 +40,7 @@ export class LoginPage {
             loading.present();
             
             this.sAccount.login(this.username, this.password)
-                .then((user: User) => {
+                .then((user: Utente) => {
                     console.log("logged: ", user);
 
                     loading.dismiss().then(() => {

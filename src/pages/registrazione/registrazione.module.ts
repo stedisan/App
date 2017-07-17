@@ -9,7 +9,7 @@ import {DictionaryModule} from '../../modules/dictionary/dictionary.module';
     RegistrazionePage,
   ],
   imports: [
-	DictionaryModule,
+   DictionaryModule,
     IonicPageModule.forChild(RegistrazionePage),
   ],
   exports: [

@@ -1,8 +1,21 @@
 <ion-header>
     <ion-navbar color="secondary">
-        <ion-title>prenotazione</ion-title>
+        <ion-title>Prenotazione</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
+    <ion-item name="item1">
+  <ion-label fixed>Data</ion-label>
+  <ion-input type="date" name="mydatatime" ></ion-input>
+  <input type="reset"  value="Resetta il form"> 
+  <input type="submit" value="Invia">
+</ion-item>
+    <ion-item name="item2">
+  <ion-label fixed>Ora</ion-label>
+  <ion-input type="time" name="mydatetime"></ion-input>
+</ion-item>
     
+    <div>
+        <button ion-button block color="secondary" (click)="conferma()"> PRENOTA </button>
+    </div>
 </ion-content>

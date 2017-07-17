@@ -1,28 +1,21 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
-/**
- * Generated class for the RegistrazionePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
- 
-//interfaces
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 
 //Providers
 import {AccountProvider} from '../../providers/account.provider';
 import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
- 
+
+
 @IonicPage()
 @Component({
   selector: 'page-registrazione',
   templateUrl: 'registrazione.html',
 })
 export class RegistrazionePage {
-	
-	user: UserSignupInterface;
+
+  user: UserSignupInterface;
 
   constructor(
   public navCtrl: NavController, 
@@ -39,12 +32,12 @@ export class RegistrazionePage {
             nome: "",
             cognome: "",
             email: "",
-			città: "",
+	    città: "",
             telefono: "",
-			età: "",
-            data di nascita: "",
+	    età: "",
+            data_di_nascita: ""
 			
-  }
+  } }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrazionePage');
@@ -112,5 +105,4 @@ export class RegistrazionePage {
                 resolve();
             }
         });
-    }
-}
+    }}

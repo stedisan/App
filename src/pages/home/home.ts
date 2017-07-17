@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {App,MenuController} from 'ionic-angular';
 
-//Providers
-
-import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
-
-
-//Types
-import {ReorderIndexes} from '../../types';
 
 @Component({
   selector: 'page-home',
@@ -17,15 +9,9 @@ import {ReorderIndexes} from '../../types';
 })
 export class HomePage {
 
-  constructor(
-  public navCtrl: NavController,
-  public app: App, 
-  public menu: MenuController,
-  public sDictionary: DictionaryService) {
-	  
-      menu.enable(true);
+  constructor(public navCtrl: NavController) {
       
-       
+      
       }
       funzione(){
           this.navCtrl.push('LoginPage');

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { TabsPage } from './tabs';
 
-import {DictionaryModule} from '../../modules/dictionary/dictionary.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +9,6 @@ import {DictionaryModule} from '../../modules/dictionary/dictionary.module';
     TabsPage,
   ],
   imports: [
-	DictionaryModule,
     IonicPageModule.forChild(TabsPage),
   ],
   exports: [

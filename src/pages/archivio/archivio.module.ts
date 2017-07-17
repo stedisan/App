@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { PreferitiPage } from './preferiti';
+import { ArchivioPage } from './archivio';
 
 @NgModule({
   declarations: [
-    PreferitiPage,
+    ArchivioPage,
   ],
   imports: [
-    IonicPageModule.forChild(PreferitiPage),
+    IonicPageModule.forChild(ArchivioPage),
   ],
   exports: [
-    PreferitiPage
+    ArchivioPage
   ]
 })
-export class PreferitiPageModule {}
+export class ArchivioPageModule {}

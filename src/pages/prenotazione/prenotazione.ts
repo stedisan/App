@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {App,MenuController} from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
-//providers
-import { DictionaryService } from '../../modules/dictionary/providers/dictionary.service';
 
 @IonicPage()
 @Component({
@@ -12,23 +10,35 @@ import { DictionaryService } from '../../modules/dictionary/providers/dictionary
 })
 export class PrenotazionePage {
 
-  constructor(
-  public navCtrl: NavController, 
-  public navParams: NavParams, 
-  public app: App, 
-  public menu: MenuController,
-  public sDictionay: DictionaryService
-  ) {
-      menu.enable(true); 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+       
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrenotazionePage');
   }
-funzione5(){
-          this.navCtrl.push('RicercaPage');
-      }
-       funzione(){
-          this.navCtrl.push('LoginPage');
+
+  conferma(){ 
+     let confirm = this.alertCtrl.create({
+      title: 'Prenota',
+      message: 'Sei sicuro di voler prenotare?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            console.log('Agree clicked');
+            this.navCtrl.setRoot('PreferitiPage');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  } 
   }
-}
+

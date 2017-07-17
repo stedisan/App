@@ -1,17 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
-/**
- * Generated class for the ImpostazioniPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
- 
- //providers
- import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
 
- 
 @IonicPage()
 @Component({
   selector: 'page-impostazioni',
@@ -19,11 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ImpostazioniPage {
 
-  constructor(
-  public navCtrl: NavController, 
-  public navParams: NavParams,
-  public sDictionary: DictionaryService
-  ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public alertCtrl: AlertController) {
   }
 
   funzione(){
@@ -32,5 +19,27 @@ export class ImpostazioniPage {
   funzione5(){
       this.navCtrl.push('RicercaPage');
   }
-
+  elimina(){
+      let confirm = this.alertCtrl.create({
+      title: 'Elimina',
+      message: 'Sei sicuro di voler eliminare il tuo profilo?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            console.log('Agree clicked');
+            this.navCtrl.push('ProfiloPage');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  } 
+  
 }
