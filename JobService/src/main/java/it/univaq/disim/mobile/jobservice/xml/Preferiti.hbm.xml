@@ -4,7 +4,7 @@
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 	<hibernate-mapping package="it.univaq.disim.mobile.jobservice.Preferiti">
 	<class name="Preferiti" table="preferiti">
-	<id name="id_pref" column="id_pre">
+	<id name="id_pref" column="id_pref">
 	<generator class="increment"/>
 	</id>
 	
@@ -12,4 +12,4 @@
         <property name="id_utentep" type="long" column="id_utente"/>
 	
         </class>
-	</hibernate-mapping>
+</hibernate-mapping>
